@@ -1,15 +1,14 @@
+from astrapy import DataAPIClient
 import random
 import uuid
 
-#Copiar o código do "Connection Details" do AstraDB
-from astrapy import DataAPIClient
-# Initialize the client
-client = DataAPIClient("AstraCS:IYcXWMZfMNOzlZEEaPOiaLMo:9377c2adb39de34d087c68a00d1bfe246f2784dcb7fc04d177832ed9b787c2e4") #Adicionar o seu PRÓPRIO token do AstraDB
+# Inicializando o cliente do Astra DB
+client = DataAPIClient("AstraCS:IYcXWMZfMNOzlZEEaPOiaLMo:9377c2adb39de34d087c68a00d1bfe246f2784dcb7fc04d177832ed9b787c2e4")
 db = client.get_database_by_api_endpoint(
     "https://3f5fce31-d697-431b-827a-76bfbe7b09d6-us-east-2.apps.astra.datastax.com"
 )
 
-# Randomizadores
+# Funções auxiliares
 def random_year():
     return random.randint(2019, 2024)
 
@@ -36,6 +35,7 @@ for aluno_id in range(1, 11):
 db['alunos_historico'].insert_many(alunos)
 
 # 2. Inserir professores
+# Exemplo de inserção corrigida
 professores = []
 for professor_id in range(1, 6):
     nome_professor = f"Professor {professor_id}"
@@ -43,13 +43,17 @@ for professor_id in range(1, 6):
     # Para cada professor, inserimos várias disciplinas
     for disciplina_id in range(1, 9):
         disciplina_nome = f"Disciplina {disciplina_id}"
+        semestre = random_semester()  # Semestre aleatório
+        ano = random_year()  # Ano aleatório
         
         # Inserir os dados incluindo as duas colunas da chave primária: id_professor e id_disciplina
         professores.append({
             'id_professor': professor_id,
             'professor_nome': nome_professor,
             'id_disciplina': disciplina_id,
-            'disciplina_nome': disciplina_nome
+            'disciplina_nome': disciplina_nome,
+            "semestre": semestre,
+            "ano": ano
         })
 
 # Inserção de todos os documentos de uma vez
@@ -162,5 +166,5 @@ for grupo_id in range(1, 6):
 # Inserir grupos de TCC em massa
 db['grupos_tcc'].insert_many(grupos_tcc)
 
-# Mensagem para saber que todos os dados foram inseridos com sucesso no banco de dados.
+# Agora todos os dados foram inseridos em massa no banco de dados.
 print("Dados inseridos com sucesso!")
