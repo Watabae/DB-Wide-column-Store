@@ -26,7 +26,9 @@ O projeto de Banco de Dados consiste na criação de um modelo de banco de dados
 
 4. Após criar a sua Database, clique no botão de "Connection Details", siga o passo-a-passo, alterando o código e token no início do "Import_data.py" pelo seu próprio código e token, lembre-se de não rodar o código em python ainda;
    
-5. Retorne à tela da sua Database e clique no botão "CQL console", após isso copie o código em "create_tables.cql"
+5. Retorne à tela da sua Database e clique no botão "CQL console", após isso copie o código em "create_tables.cql" e cole-o no "CQL console";
+
+6. Inicie o programa "Import.py", após ele ter terminado você receberá uma mensagem de sucesso;
 
 7. Execute as queries SQL para resolver problemas específicos:
    - **item 1:** Histórico escolar de qualquer aluno, retornando o código e nome da disciplina, semestre e ano que a disciplina foi cursada e nota final.
@@ -35,6 +37,3 @@ O projeto de Banco de Dados consiste na criação de um modelo de banco de dados
    - **item 4:** Listar todos os professores que são chefes de departamento, junto com o nome do departamento.
    - **item 5:** Saber quais alunos formaram um grupo de TCC e qual professor foi o orientador.
 
-## Diagrama Relacional
-
-![Diagrama Relacional](https://github.com/vichelly/BancoDeDados5Ciclo/blob/master/DiagramaRelacional.jpg)
