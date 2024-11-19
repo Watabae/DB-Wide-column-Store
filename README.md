@@ -22,7 +22,7 @@ O projeto de Banco de Dados consiste na criação de um modelo de banco de dados
 
 2. Crie uma conta no Astra DB (https://astra.datastax.com/);
 
-3. Clique em "Database" → "Create Database"; Lembre-se de escolher o servidor AWS;
+3. Clique em "Database" → "Create Database". Lembre-se de escolher o servidor AWS;
 
 4. Após criar a sua Database, clique no botão de "Connection Details", siga o passo-a-passo, alterando o código e token no início do "Import_data.py" pelo seu próprio código e token, lembre-se de não rodar o código em python ainda;
    
