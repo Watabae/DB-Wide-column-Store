@@ -1,4 +1,4 @@
--- Usar o Keyspace default do DataStax
+-- Usar o Keyspace
 USE default_keyspace;
 
 -- Criar as Tabelas
@@ -27,7 +27,8 @@ CREATE TABLE Departamentos (
 CREATE TABLE Cursos (
     id_curso INT PRIMARY KEY,
     nome TEXT,
-    id_departamento INT
+    id_departamento INT,
+    chefe_professor_nome text
 );
 
 CREATE TABLE Matriz_Curricular (
@@ -79,6 +80,7 @@ CREATE TABLE professores_disciplinas (
   ano INT,
   PRIMARY KEY (id_professor, id_disciplina)
 );
+
 
 CREATE TABLE departamentos_cursos (
   id_departamento INT,
