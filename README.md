@@ -37,3 +37,7 @@ O projeto de Banco de Dados consiste na criação de um modelo de banco de dados
    - **item 4:** Listar todos os professores que são chefes de departamento, junto com o nome do departamento.
    - **item 5:** Saber quais alunos formaram um grupo de TCC e qual professor foi o orientador.
 
+### Informações Importantes
+- O código do "**item 3:** Listar alunos que já se formaram (foram aprovados em todos os cursos de uma matriz curricular) em um determinado semestre de um ano." está mostrando todos os alunos que se formaram anteriormente ao ano de 2024, caso você queira saber de um ano em específico (Por estar randomizado) você pode realizar a ação a seguir:
+
+1. Rodar o código
