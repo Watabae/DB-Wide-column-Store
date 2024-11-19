@@ -75,29 +75,39 @@ for professor_id in range(1, 6):
 # Inserir as disciplinas em massa
 db['professores_disciplinas'].insert_many(disciplinas)
 
-# 4. Inserir departamentos e cursos
+# 4. Inserir departamentos, chefes e cursos
 departamentos = []
 for departamento_id in range(1, 4):
     nome_departamento = f"Departamento {departamento_id}"
-    chefe_id = random_choice(5)  # Escolher aleatoriamente o chefe do departamento
-    chefe_nome = f"Professor {chefe_id}"
+    chefe_id = random_choice(5)  
+    chefe_nome = f"Professor {chefe_id}"  
 
-    # Para cada departamento, inserimos vários cursos
+    departamentos.append({
+        'id_departamento': departamento_id,
+        'id_chefe_professor': chefe_id,
+        'chefe_professor_nome': chefe_nome,  
+        'nome': nome_departamento  
+    })
+
+# Inserir os departamentos
+db['departamentos'].insert_many(departamentos)
+
+
+# Inserir cursos e associá-los aos departamentos
+cursos = []
+for departamento_id in range(1, 4):
     for curso_id in range(1, 5):
         nome_curso = f"Curso {curso_id}"
-        
-        # Inserir os dados incluindo as duas colunas da chave primária: id_departamento e id_curso
-        departamentos.append({
-            'id_departamento': departamento_id,
-            'departamento_nome': nome_departamento,
-            'id_chefe_professor': chefe_id,
-            'chefe_professor_nome': chefe_nome,
+
+        # Inserir apenas os dados correspondentes ao esquema
+        cursos.append({
             'id_curso': curso_id,
-            'curso_nome': nome_curso
+            'id_departamento': departamento_id,
+            'nome': nome_curso  # Nome do curso armazenado na coluna "nome"
         })
 
-# Inserção de todos os documentos de uma vez
-db['departamentos_cursos'].insert_many(departamentos)
+# Inserção de todos os cursos de uma vez
+db['cursos'].insert_many(cursos)
 
 # 5. Inserir matrizes curriculares
 matrizes_curriculares = []
