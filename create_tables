@@ -73,9 +73,10 @@ CREATE TABLE alunos_historico (
 
 CREATE TABLE professores_disciplinas (
   id_professor INT,
-  professor_nome TEXT,
   id_disciplina INT,
   disciplina_nome TEXT,
+  semestre INT,
+  ano INT,
   PRIMARY KEY (id_professor, id_disciplina)
 );
 
